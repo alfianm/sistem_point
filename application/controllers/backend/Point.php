@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Point extends CI_Controller {
 
 	public function __construct()
 	{
@@ -10,12 +10,12 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		$data['user'] 			= $this->db->get_where('t_user', ['username' => $this->session->userdata('username')])->row_array();
-		$data['title'] 			= 'Dashboard';
-		$data['js']				= 'dashboard';
-		$this->template->load('templates','mod/dashboard/view_index',$data);
+		$data['title'] 			= 'Point';
+		$data['js']				= 'point';
+		$this->template->load('templates','mod/point/view_index',$data);
 	}
 
 }
 
-/* End of file Dashboard.php */
-/* Location: ./application/controllers/Dashboard.php */
+/* End of file Point.php */
+/* Location: ./application/controllers/Point.php */

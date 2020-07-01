@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="utf-8" />
-        <title>Login Page</title>
+        <title>Register Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -26,7 +26,7 @@
     <body class="account-pages">
 
         <!-- Begin page -->
-        <div class="accountbg" style="background: url('assets/images/bg-1.jpg');background-size: cover;background-position: center;"></div>
+        <div class="accountbg" style="background: url('assets/images/bg-2.jpg');background-size: cover;background-position: center;"></div>
 
         <div class="wrapper-page account-page-full">
 
@@ -37,32 +37,51 @@
 
                         <div class="card-box p-5">
                             <h2 class="text-uppercase text-center pb-4">
-                                <a href="#" class="text-success">
-                                    SISTEM POINT
+                                <a href="index.html" class="text-success">
+                                    <span>Register</span>
                                 </a>
                             </h2>
 
-                            <form class="" action="<?= base_url('goadmin') ?>" method="post">
-
+                            <form class="form-horizontal" action="<?= base_url('goadmin/addcustomer') ?>" method="post">
                                 <?= $this->session->flashdata('message'); ?>
-
-                                <div class="form-group m-b-20 row">
+                                <div class="form-group row m-b-20">
                                     <div class="col-12">
                                         <label for="username">Username</label>
-                                        <input class="form-control" name="username" type="text" id="username" required="" placeholder="Enter your username">
+                                        <input class="form-control" name="username" type="username" required="" id="username" placeholder="Masukkan username">
                                     </div>
                                 </div>
 
                                 <div class="form-group row m-b-20">
                                     <div class="col-12">
                                         <label for="password">Password</label>
-                                        <input class="form-control" name="password" type="password" required="" id="password" placeholder="Enter your password">
+                                        <input class="form-control" name="password" type="password" required="" id="password" placeholder="Masukkan password">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="nama">Nama</label>
+                                        <input class="form-control" name="nama" type="text" id="nama" required="" placeholder="Masukkan nama">
+                                    </div>
+                                </div>
+
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="alamat">Alamat</label>
+                                        <textarea class="form-control" name="alamat" type="text" id="alamat" required="" placeholder="Masukkan alamat" cols="30" rows="5"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row m-b-20">
+                                    <div class="col-12">
+                                        <label for="no">No. Telpon</label>
+                                        <input class="form-control" name="no" type="text" id="no" required="" placeholder="Masukkan no telpon">
                                     </div>
                                 </div>
 
                                 <div class="form-group row text-center m-t-10">
                                     <div class="col-12">
-                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign In</button>
+                                        <button class="btn btn-block btn-custom waves-effect waves-light" type="submit">Sign Up Free</button>
                                     </div>
                                 </div>
 
@@ -70,7 +89,7 @@
 
                             <div class="row m-t-50">
                                 <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="<?= base_url('goadmin/register') ?>" class="text-dark m-l-5"><b>Sign Up</b></a></p>
+                                    <p class="text-muted">Already have an account?  <a href="<?= base_url('goadmin') ?>" class="text-dark m-l-5"><b>Sign In</b></a></p>
                                 </div>
                             </div>
 
@@ -80,9 +99,7 @@
                 </div>
             </div>
 
-            <div class="m-t-40 text-center">
-                <p class="account-copyright">2020 © Highdmin. - <a href="https://alfianm.github.io">Alfian Maulana</a></p>
-            </div>
+            
 
         </div>
 

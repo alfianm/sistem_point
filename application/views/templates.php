@@ -34,23 +34,20 @@
 
                     <!-- LOGO -->
                     <div class="topbar-left">
-                        <a href="index.html" class="logo">
+                        <a href="#" class="logo" style="color: black">
                             <span>
-                                <img src="assets/images/logo.png" alt="" height="22">
+                                Sistem Poin
                             </span>
-                            <i>
-                                <img src="assets/images/logo_sm.png" alt="" height="28">
-                            </i>
                         </a>
                     </div>
 
                     <!-- User box -->
                     <div class="user-box">
                         <div class="user-img">
-                            <img src="assets/images/users/avatar-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
+                            <img src="<?= base_url('file/'.$user['image']) ?>" alt="user-img" title="Mat Helme" class="rounded-circle img-fluid">
                         </div>
-                        <h5><a href="#">Maxine Kennedy</a> </h5>
-                        <p class="text-muted">Admin Head</p>
+                        <h5><a href="#"><?= $user['username'] ?></a> </h5>
+                        <p class="text-muted"><?= $user['level'] ?></p>
                     </div>
 
                     <!--- Sidemenu -->
@@ -61,8 +58,32 @@
                             <!--<li class="menu-title">Navigation</li>-->
 
                             <li>
-                                <a href="<?= base_url('backend/dashboard') ?>">
+                                <a href="<?= base_url('dashboard') ?>">
                                     <i class="fi-air-play"></i> <span> Dashboard </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url('customer') ?>">
+                                    <i class="fi-air-play"></i> <span> Customer </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url('transaksi') ?>">
+                                    <i class="fi-air-play"></i> <span> Transaksi </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url('hadiah') ?>">
+                                    <i class="fi-air-play"></i> <span> Hadiah </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="<?= base_url('customer') ?>">
+                                    <i class="fi-air-play"></i> <span> Pembelian </span>
                                 </a>
                             </li>
 
@@ -95,128 +116,9 @@
                         <ul class="list-unstyled topbar-right-menu float-right mb-0">
 
                             <li class="dropdown notification-list">
-                                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
-                                   aria-haspopup="false" aria-expanded="false">
-                                    <i class="fi-bell noti-icon"></i>
-                                    <span class="badge badge-danger badge-pill noti-icon-badge">4</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
-
-
-                                    <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5 class="m-0"><span class="float-right"><a href="" class="text-dark"><small>Clear All</small></a> </span>Notification</h5>
-                                    </div>
-
-                                    <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-success"><i class="mdi mdi-comment-account-outline"></i></div>
-                                            <p class="notify-details">Caleb Flakelar commented on Admin<small class="text-muted">1 min ago</small></p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-info"><i class="mdi mdi-account-plus"></i></div>
-                                            <p class="notify-details">New user registered.<small class="text-muted">5 hours ago</small></p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-danger"><i class="mdi mdi-heart"></i></div>
-                                            <p class="notify-details">Carlos Crouch liked <b>Admin</b><small class="text-muted">3 days ago</small></p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-warning"><i class="mdi mdi-comment-account-outline"></i></div>
-                                            <p class="notify-details">Caleb Flakelar commented on Admin<small class="text-muted">4 days ago</small></p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-purple"><i class="mdi mdi-account-plus"></i></div>
-                                            <p class="notify-details">New user registered.<small class="text-muted">7 days ago</small></p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon bg-custom"><i class="mdi mdi-heart"></i></div>
-                                            <p class="notify-details">Carlos Crouch liked <b>Admin</b><small class="text-muted">13 days ago</small></p>
-                                        </a>
-                                    </div>
-
-                                    <!-- All-->
-                                    <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                                        View all <i class="fi-arrow-right"></i>
-                                    </a>
-
-                                </div>
-                            </li>
-
-                            <li class="dropdown notification-list">
-                                <a class="nav-link dropdown-toggle arrow-none" data-toggle="dropdown" href="#" role="button"
-                                   aria-haspopup="false" aria-expanded="false">
-                                    <i class="fi-speech-bubble noti-icon"></i>
-                                    <span class="badge badge-custom badge-pill noti-icon-badge">6</span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg">
-
-
-                                    <!-- item-->
-                                    <div class="dropdown-item noti-title">
-                                        <h5 class="m-0"><span class="float-right"><a href="" class="text-dark"><small>Clear All</small></a> </span>Chat</h5>
-                                    </div>
-
-                                    <div class="slimscroll" style="max-height: 230px;">
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-2.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                            <p class="notify-details">Cristina Pride</p>
-                                            <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-3.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                            <p class="notify-details">Sam Garret</p>
-                                            <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                            <p class="notify-details">Karen Robinson</p>
-                                            <p class="text-muted font-13 mb-0 user-msg">Wow that's great</p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-5.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                            <p class="notify-details">Sherry Marshall</p>
-                                            <p class="text-muted font-13 mb-0 user-msg">Hi, How are you? What about our next meeting</p>
-                                        </a>
-
-                                        <!-- item-->
-                                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-6.jpg" class="img-fluid rounded-circle" alt="" /> </div>
-                                            <p class="notify-details">Shawn Millard</p>
-                                            <p class="text-muted font-13 mb-0 user-msg">Yeah everything is fine</p>
-                                        </a>
-                                    </div>
-
-                                    <!-- All-->
-                                    <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                                        View all <i class="fi-arrow-right"></i>
-                                    </a>
-
-                                </div>
-                            </li>
-
-                            <li class="dropdown notification-list">
                                 <a class="nav-link dropdown-toggle nav-user" data-toggle="dropdown" href="#" role="button"
                                    aria-haspopup="false" aria-expanded="false">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle"> <span class="ml-1">Maxine K <i class="mdi mdi-chevron-down"></i> </span>
+                                    <img src="<?= base_url('file/'.$user['image']) ?>" alt="user" class="rounded-circle"> <span class="ml-1"><?= $user['username'] ?> <i class="mdi mdi-chevron-down"></i> </span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown">
                                     <!-- item-->
@@ -225,27 +127,7 @@
                                     </div>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-head"></i> <span>My Account</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-cog"></i> <span>Settings</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-help"></i> <span>Support</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="fi-lock"></i> <span>Lock Screen</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="<?= base_url('goadmin/logout') ?>" class="dropdown-item notify-item">
                                         <i class="fi-power"></i> <span>Logout</span>
                                     </a>
 
