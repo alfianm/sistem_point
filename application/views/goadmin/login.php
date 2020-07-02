@@ -42,7 +42,7 @@
                                 </a>
                             </h2>
 
-                            <form class="" action="<?= base_url('goadmin') ?>" method="post">
+                            <form class="" action="<?= base_url('login') ?>" method="post">
 
                                 <?= $this->session->flashdata('message'); ?>
 

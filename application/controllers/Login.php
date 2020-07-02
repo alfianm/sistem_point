@@ -31,11 +31,11 @@ class Login extends CI_Controller {
                     redirect('dashboard');
                 }else{
                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password yang anda masukkan salah!!</div>');
-                    redirect('goadmin');
+                    redirect('login');
                 }
         }else{
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username yang anda masukkan salah!!!</div>');
-            redirect('goadmin');
+            redirect('login');
         }
     }
 
@@ -46,6 +46,6 @@ class Login extends CI_Controller {
         $this->session->unset_userdata('level');;
 
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Terimakasih. anda berhasil logout.</div>');
-        redirect('goadmin');
+        redirect('login');
     }
 }
