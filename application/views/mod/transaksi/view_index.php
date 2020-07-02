@@ -1,38 +1,38 @@
 <div class="row">
-    <div class="col-12">
-        <button class="btn btn-custom mb-2" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> Tambah transaksi</button>
-        <div class="card-box">
-          <?= $this->session->flashdata('message'); ?>
-        	<table id="datatable" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-              	<thead>
-	              	<tr>
-	                  	<th>#</th>
-	                  	<th>Username</th>
-                      <th>Nama Lengkap</th>
-                      <th>Point</th>
-                      <th>Action</th>
-	              	</tr>
-              	</thead>
-              	<tbody>
-                <?php $no = 1; ?>
-                 <?php foreach ($transaksi as $t): ?>
-                    <tr>
-                      <td><?= $no++; ?></td>
-                      <td><?= $t['full_name'] ?></td>
-                      <td><?= $t['nama_produk'] ?></td>
-                      <td><?= $t['tanggal_pembelian'] ?></td>
-                      <td><?= $t['jumlah'] ?></td>
-                      <td><?= $t['harga'] ?></td>
-                      <td>
-                        <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#edit<?= $u['id'] ?>"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $u['id'] ?>"><i class="fa fa-trash"></i></a>
-                      </td>
-                    </tr>
-                  <?php endforeach ?> 
-                </tbody>
-          	</table>
-        </div>
+  <div class="col-12">
+    <button class="btn btn-custom mb-2" data-toggle="modal" data-target="#add"><i class="fa fa-plus"></i> Tambah transaksi</button>
+    <div class="card-box">
+    <?= $this->session->flashdata('message'); ?>
+  	<table id="datatable" class="table dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+        	<thead>
+          	<tr>
+              	<th>#</th>
+              	<th>Username</th>
+                <th>Nama Lengkap</th>
+                <th>Point</th>
+                <th>Action</th>
+          	</tr>
+        	</thead>
+        	<tbody>
+          <?php $no = 1; ?>
+           <?php foreach ($transaksi as $t): ?>
+              <tr>
+                <td><?= $no++; ?></td>
+                <td><?= $t['full_name'] ?></td>
+                <td><?= $t['nama_produk'] ?></td>
+                <td><?= $t['tanggal_pembelian'] ?></td>
+                <td><?= $t['jumlah'] ?></td>
+                <td><?= $t['harga'] ?></td>
+                <td>
+                  <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#edit<?= $u['id'] ?>"><i class="fa fa-edit"></i></a>
+                  <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $u['id'] ?>"><i class="fa fa-trash"></i></a>
+                </td>
+              </tr>
+            <?php endforeach ?> 
+          </tbody>
+    	</table>
     </div>
+  </div>
 </div>
 
 <div id="add" class="modal fade custom-modal-tabs">
