@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>Highdmin - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title><?= $title ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -16,6 +16,11 @@
         <link href="<?= base_url('templates/highadmin') ?>/css/icons.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('templates/highadmin') ?>/css/metismenu.min.css" rel="stylesheet" type="text/css" />
         <link href="<?= base_url('templates/highadmin') ?>/css/style.css" rel="stylesheet" type="text/css" />
+        <!-- DataTables -->
+        <link href="<?= base_url('templates/highadmin') ?>/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="<?= base_url('templates/highadmin') ?>/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="<?= base_url('templates/highadmin') ?>/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
         <script src="<?= base_url('templates/highadmin') ?>/js/modernizr.min.js"></script>
 
@@ -64,8 +69,8 @@
                             </li>
 
                             <li>
-                                <a href="<?= base_url('customer') ?>">
-                                    <i class="fi-air-play"></i> <span> Customer </span>
+                                <a href="<?= base_url('user') ?>">
+                                    <i class="fi-air-play"></i> <span> User </span>
                                 </a>
                             </li>
 
@@ -81,11 +86,7 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="<?= base_url('customer') ?>">
-                                    <i class="fi-air-play"></i> <span> Pembelian </span>
-                                </a>
-                            </li>
+                            
 
                         </ul>
 
@@ -192,28 +193,24 @@
         <script src="<?= base_url('templates/highadmin') ?>/js/waves.js"></script>
         <script src="<?= base_url('templates/highadmin') ?>/js/jquery.slimscroll.js"></script>
 
-        <!-- Flot chart -->
-        <script src="../plugins/flot-chart/jquery.flot.min.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.time.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.tooltip.min.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.resize.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.pie.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.crosshair.js"></script>
-        <script src="../plugins/flot-chart/curvedLines.js"></script>
-        <script src="../plugins/flot-chart/jquery.flot.axislabels.js"></script>
+        <!-- Required datatable js -->
+        <script src="<?= base_url('templates/highadmin') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url('templates/highadmin') ?>/plugins/datatables/dataTables.bootstrap4.min.js"></script>
 
-        <!-- KNOB JS -->
-        <!--[if IE]>
-        <script type="text/javascript" src="../plugins/jquery-knob/excanvas.js"></script>
-        <![endif]-->
-        <script src="../plugins/jquery-knob/jquery.knob.js"></script>
-
-        <!-- Dashboard Init -->
-        <script src="assets/pages/jquery.dashboard.init.js"></script>
+        <!-- Responsive examples -->
+        <script src="<?= base_url('templates/highadmin') ?>/plugins/datatables/dataTables.responsive.min.js"></script>
+        <script src="<?= base_url('templates/highadmin') ?>/plugins/datatables/responsive.bootstrap4.min.js"></script>
 
         <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
+        <script src="<?= base_url('templates/highadmin') ?>/js/jquery.core.js"></script>
+        <script src="<?= base_url('templates/highadmin') ?>/js/jquery.app.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                 // Responsive Datatable
+                $('#datatable').DataTable();
+            });
+        </script>
 
     </body>
 </html>

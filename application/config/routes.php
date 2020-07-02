@@ -6,6 +6,6 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['dashboard'] = 'backend/dashboard';
-$route['customer'] = 'backend/customer';
+$route['user'] = 'backend/user';
 $route['hadiah'] = 'backend/hadiah';
 $route['transaksi'] = 'backend/transaksi';

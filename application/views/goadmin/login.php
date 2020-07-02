@@ -67,13 +67,6 @@
                                 </div>
 
                             </form>
-
-                            <div class="row m-t-50">
-                                <div class="col-sm-12 text-center">
-                                    <p class="text-muted">Don't have an account? <a href="<?= base_url('goadmin/register') ?>" class="text-dark m-l-5"><b>Sign Up</b></a></p>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 

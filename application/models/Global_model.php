@@ -20,9 +20,9 @@ class Global_model extends CI_Model {
 		return $this->db->update($table);
 	}
 
-	public function delete($table,$id)
+	public function delete($table,$where)
 	{
-		$this->db->where($where, $id);
+		$this->db->where($where);
 		return $this->db->delete($table);
 	}
 
@@ -37,6 +37,12 @@ class Global_model extends CI_Model {
 
 	public function getOneWhere($where,$table){
 		return $this->db->where($where)->get($table)->row();
+	}
+
+	public function getTransaksi()
+	{
+		$this->db->join('t_user', 't_user.id = t_transaksi.id_user', 'left');
+		return $this->db->get('t_transaksi')->result_array();
 	}
 
 }
