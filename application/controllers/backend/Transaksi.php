@@ -23,18 +23,25 @@ class Transaksi extends CI_Controller {
 		$post = $this->input->post();
 
 		$data = [
-			'username' => $post['username']
+			'id_user' => $post['customer'],
+			'nama_produk' => $post['produk'],
+			'harga' => $post['harga']
 		];
 
-		$success = $this->global->insert('t_user',$data);
+		$success = $this->global->insert('t_transaksi',$data);
+		$cust = $this->global->getCust($post['customer']);
+
+		$point = $cust->point + 5;
+
+		$update = $this->global->plusPoint($point,$cust->id);
 
 
 		if ($success) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Sukses</strong> Data berhasil disimpan.</div>');
-			redirect('user','refresh');
+			redirect('transaksi','refresh');
 		}else{
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Maaf!</strong> Data gagal disimpan.</div>');
-			redirect('user','refresh');
+			redirect('transaksi','refresh');
 		}
 	}
 
@@ -43,32 +50,31 @@ class Transaksi extends CI_Controller {
 		$post = $this->input->post();
 
 		$data = [
-			'username' => $post['username'],
-			'password' => $post['password'],
-			'full_name' => $post['nama'],
-			'level' => $post['level']
+			'id_user' => $post['customer'],
+			'nama_produk' => $post['produk'],
+			'harga' => $post['harga']
 		];
 
-		$success = $this->global->update('t_user', $data, ['id' => $post['id']]);
+		$success = $this->global->update('t_transaksi', $data, ['id' => $post['id']]);
 		if ($success) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Sukses</strong> Data berhasil diubah.</div>');
-			redirect('user','refresh');
+			redirect('transaksi','refresh');
 		}else{
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Maaf!</strong> Data gagal diubah.</div>');
-			redirect('user','refresh');
+			redirect('transaksi','refresh');
 		}
 	}
 
 	public function delete()
 	{
 		$post = $this->input->post();
-		$success = $this->global->delete('t_user', ['id' => $post['id']]);
+		$success = $this->global->delete('t_transaksi', ['id' => $post['id']]);
 		if ($success) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Sukses</strong> Data berhasil dihapus.</div>');
-			redirect('user','refresh');
+			redirect('transaksi','refresh');
 		}else{
 			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Maaf!</strong> Data gagal dihapus.</div>');
-			redirect('user','refresh');
+			redirect('transaksi','refresh');
 		}
 	}
 

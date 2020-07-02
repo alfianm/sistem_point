@@ -10,7 +10,6 @@
                 <th>Nama Lengkap</th>
                 <th>Produk</th>
                 <th>Tanggal Pembelian</th>
-                <th>Jumlah</th>
                 <th>Harga</th>
                 <th>Action</th>
           	</tr>
@@ -23,7 +22,6 @@
                 <td><?= $t['full_name'] ?></td>
                 <td><?= $t['nama_produk'] ?></td>
                 <td><?= $t['tanggal_pembelian'] ?></td>
-                <td><?= $t['jumlah'] ?></td>
                 <td><?= $t['harga'] ?></td>
                 <td>
                   <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#edit<?= $t['id'] ?>"><i class="fa fa-edit"></i></a>
@@ -66,10 +64,6 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="jumlah">Jumlah</label>
-            <input type="number" name="jumlah" class="form-control" autocomplete="off" id="jumlah">
-          </div>
-          <div class="form-group">
             <label for="harga">Harga</label>
             <input type="number" name="harga" class="form-control" autocomplete="off" id="harga">
           </div>
@@ -93,7 +87,7 @@
         <h5 class="modal-title">Update Transaksi</h5>
       </div>
       <form action="<?= base_url('backend/transaksi/edit') ?>" method="POST">
-        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+        <input type="hidden" name="id" value="<?= $row['id_transaksi'] ?>">
         <div class="modal-body">
           <div class="form-group">
             <label for="customer">Customer</label>
@@ -102,6 +96,8 @@
               <?php foreach ($users as $u): ?>
                 <?php if ($u['id'] == $row['id_user']): ?>
                   <option selected value="<?= $u['id'] ?>"><?= $u['full_name'] ?></option>
+                <?php else: ?>
+                  <option value="<?= $u['id'] ?>"><?= $u['full_name'] ?></option>
                 <?php endif ?>
               <?php endforeach; ?>
             </select>
@@ -110,19 +106,32 @@
             <label for="produk">Produk</label>
             <select name="produk" id="produk" class="form-control">
               <option value="" disabled selected>- Select -</option>
-              <option value="baju">Baju</option>
+              <?php if ($row['nama_produk'] == 'baju'): ?>
+              <option selected value="baju">Baju</option>
               <option value="celana">Celana</option>
               <option value="jaket">Jaket</option>
               <option value="sepatu">Sepatu</option>
+              <?php elseif($row['nama_produk'] == 'celana'): ?>
+              <option value="baju">Baju</option>
+              <option selected value="celana">Celana</option>
+              <option value="jaket">Jaket</option>
+              <option value="sepatu">Sepatu</option>
+              <?php elseif($row['nama_produk'] == 'jaket'): ?>
+              <option value="baju">Baju</option>
+              <option value="celana">Celana</option>
+              <option selected value="jaket">Jaket</option>
+              <option value="sepatu">Sepatu</option>
+              <?php elseif($row['nama_produk'] == 'sepatu'): ?>
+              <option value="baju">Baju</option>
+              <option value="celana">Celana</option>
+              <option value="jaket">Jaket</option>
+              <option selected value="sepatu">Sepatu</option>
+              <?php endif ?>
             </select>
           </div>
           <div class="form-group">
-            <label for="jumlah">Jumlah</label>
-            <input type="number" name="jumlah" class="form-control" autocomplete="off" id="jumlah">
-          </div>
-          <div class="form-group">
             <label for="harga">Harga</label>
-            <input type="number" name="harga" class="form-control" autocomplete="off" id="harga">
+            <input type="number" name="harga" class="form-control" value="<?= $row['harga'] ?>" autocomplete="off" id="harga">
           </div>
         </div>
         <div class="modal-footer modal-footer--center">
@@ -144,9 +153,9 @@
         <h5 class="modal-title">Hapus Data</h5>
       </div>
       <form action="<?= base_url('backend/transaksi/delete') ?>" method="POST">
-        <input type="hidden" name="id" value="<?= $row['id'] ?>">
+        <input type="hidden" name="id" value="<?= $row['id_transaksi'] ?>">
         <div class="modal-body">
-          <h4>Apakah anda yakin ingin menghapus data ini? <span class="text-danger"><?= $row['full_name'] ?></span></h4>
+          <h4>Apakah anda yakin ingin menghapus data ini? <span class="text-danger"><?= $row['id_transaksi'] ?></span></h4>
         </div>
         <div class="modal-footer modal-footer--center">
           <button type="button" class="btn btn-outline-info" data-dismiss="modal">Cancel</button>

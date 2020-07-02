@@ -41,8 +41,22 @@ class Global_model extends CI_Model {
 
 	public function getTransaksi()
 	{
+		$this->db->select('*,t_transaksi.id as id_transaksi');
 		$this->db->join('t_user', 't_user.id = t_transaksi.id_user', 'left');
 		return $this->db->get('t_transaksi')->result_array();
+	}
+
+	public function getCust($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->get('t_user')->row();
+	}
+
+	public function plusPoint($point,$id)
+	{
+		$this->db->set('point', $point);
+		$this->db->where('id', $id);
+		$this->db->update('t_user');
 	}
 
 }
