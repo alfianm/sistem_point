@@ -9,3 +9,4 @@ $route['dashboard'] = 'backend/dashboard';
 $route['user'] = 'backend/user';
 $route['hadiah'] = 'backend/hadiah';
 $route['transaksi'] = 'backend/transaksi';
+$route['penukaran'] = 'backend/penukaran';

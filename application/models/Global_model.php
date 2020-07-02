@@ -59,6 +59,20 @@ class Global_model extends CI_Model {
 		$this->db->update('t_user');
 	}
 
+	public function getHadiah()
+	{
+		return $this->db->get('t_hadiah')->result_array();
+	}
+
+	public function getPenukaran()
+	{
+		$this->db->select('t_user.full_name as nama_lengkap, t_hadiah.nama_hadiah as nama_hadiah,t_hadiah.point as point_hadiah, ');
+		$this->db->join('t_user', 't_user.id = t_penukaran.id_user', 'left');
+		$this->db->join('t_hadiah', 't_hadiah.id = t_penukaran.id_hadiah', 'left');
+		$this->db->where('id_user', $this->session->userdata('id_user'));
+		return $this->db->get('t_penukaran')->result_array();
+	}
+
 }
 
 /* End of file Global_model.php */

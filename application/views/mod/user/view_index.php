@@ -78,7 +78,7 @@
     <div class="modal-content">
       <div class="modal-header has-border">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h5 class="modal-title">Hapus Data</h5>
+        <h5 class="modal-title">Update User</h5>
       </div>
       <form action="<?= base_url('backend/user/edit') ?>" method="POST">
         <input type="hidden" name="id" value="<?= $row['id'] ?>">

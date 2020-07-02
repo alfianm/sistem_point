@@ -9,9 +9,17 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
-		$data['user'] 			= $this->db->get_where('t_user', ['username' => $this->session->userdata('username')])->row_array();
-		$data['title'] 			= 'Dashboard';
-		$data['js']				= 'dashboard';
+		if (!$this->session->userdata('username')) {
+            redirect('login','refresh');
+        }
+		$data = [
+			'user' => $this->db->get_where('t_user', ['username' => $this->session->userdata('username')])->row_array(),
+			'title' => 'Dashboard',
+			'total_user' => $this->db->get('t_user')->num_rows(),
+			'total_transaksi' => $this->db->get('t_transaksi')->num_rows(),
+			'total_hadiah' => $this->db->get('t_hadiah')->num_rows(),
+			'total_transaksi_peruser' => $this->db->get_where('t_transaksi',['id_user' => $this->session->userdata('id_user')])->num_rows(),
+		];
 		$this->template->load('templates','mod/dashboard/view_index',$data);
 	}
 

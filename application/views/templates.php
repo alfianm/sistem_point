@@ -68,23 +68,35 @@
                                 </a>
                             </li>
 
-                            <li>
+                            <?php if ($user['level'] == 'superadmin'): ?>
+                                <li>
                                 <a href="<?= base_url('user') ?>">
-                                    <i class="fi-air-play"></i> <span> User </span>
+                                    <i class="fa fa-users"></i> <span> User </span>
                                 </a>
-                            </li>
+                                </li>
 
-                            <li>
-                                <a href="<?= base_url('transaksi') ?>">
-                                    <i class="fi-air-play"></i> <span> Transaksi </span>
-                                </a>
-                            </li>
+                                <li>
+                                    <a href="<?= base_url('transaksi') ?>">
+                                        <i class="fa fa-handshake-o"></i> <span> Transaksi </span>
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="<?= base_url('hadiah') ?>">
-                                    <i class="fi-air-play"></i> <span> Hadiah </span>
-                                </a>
-                            </li>
+                            <?php endif ?>
+                                <li>
+                                    <a href="<?= base_url('hadiah') ?>">
+                                        <i class="fa fa-gift"></i> <span> Hadiah </span>
+                                    </a>
+                                </li>
+
+                            <?php if ($user['level'] == 'customer'): ?>
+                                <li>
+                                    <a href="<?= base_url('penukaran') ?>">
+                                        <i class="fa fa-dropbox"></i> <span> Data Penukaran </span>
+                                    </a>
+                                </li>
+                            <?php endif ?>
+
+                            
 
                             
 
@@ -128,7 +140,7 @@
                                     </div>
 
                                     <!-- item-->
-                                    <a href="<?= base_url('goadmin/logout') ?>" class="dropdown-item notify-item">
+                                    <a href="<?= base_url('login/logout') ?>" class="dropdown-item notify-item">
                                         <i class="fi-power"></i> <span>Logout</span>
                                     </a>
 

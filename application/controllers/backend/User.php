@@ -5,6 +5,9 @@ class User extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if (!$this->session->userdata('username')) {
+            redirect('login','refresh');
+        }
 	}
 
 	public function index()
@@ -63,8 +66,6 @@ class User extends CI_Controller {
 	{
 		$post = $this->input->post();
 		$success = $this->global->delete('t_user', ['id' => $post['id']]);
-		$this->db->where('id', $post['id']);
-		$this->db->delete('t_transaksi');
 		if ($success) {
 			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Sukses</strong> Data berhasil dihapus.</div>');
 			redirect('user','refresh');

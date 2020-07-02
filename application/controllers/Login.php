@@ -24,6 +24,7 @@ class Login extends CI_Controller {
         if ($user) {
                 if ($password == $user['password']) {
                     $data = [
+                        'id_user' => $user['id'],
                         'username' => $user['username'],
                         'level' => $user['level']
                     ];
