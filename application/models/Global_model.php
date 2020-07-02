@@ -73,6 +73,23 @@ class Global_model extends CI_Model {
 		return $this->db->get('t_penukaran')->result_array();
 	}
 
+	public function minPoint($id, $point)
+	{
+		$this->db->set('point', $point);
+		$this->db->where('id', $id);
+		$this->db->update('t_user');
+	}
+
+
+	// -------------------- API ----------------------------- //
+
+	public function getPointUser()
+	{
+		$this->db->select('id,full_name, point');
+		$this->db->where('level', 'customer');
+		return $this->db->get('t_user')->result_array();
+	}
+
 }
 
 /* End of file Global_model.php */

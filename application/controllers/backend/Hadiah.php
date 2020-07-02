@@ -71,6 +71,31 @@ class Hadiah extends CI_Controller {
 		}
 	}
 
+	public function tukar()
+	{
+		$post = $this->input->post();
+
+		$user = $this->db->get_where('t_user',['id' => $this->session->userdata('id_user')])->row();
+
+		if ($user->point >= $post['point']) {
+			$point = $user->point - $post['point'];
+
+			$this->global->minPoint($user->id,$point);
+
+			$data = [
+				'id_user' => $user->id,
+				'id_hadiah' => $post['id']
+			];
+			$this->global->insert('t_penukaran',$data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Sukses</strong> Penukaran point berhasil, silahkan periksa hadiah mu di data penukaran.</div>');
+			redirect('hadiah','refresh');
+		}else{
+			$this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Maaf!</strong> Point anda kurang untuk melakukan penukaran.</div>');
+			redirect('hadiah','refresh');
+		}
+		die;
+	}
+
 }
 
 /* End of file Hadiah.php */

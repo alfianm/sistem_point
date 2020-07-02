@@ -1,0 +1,15 @@
+SECURITY REST API KEY/TOKEN
+1. key =
+insert manual di database
+
+X-API-KEY = sistempoint
+
+2. limit = 10
+
+3. login =
+username = alfian
+password = 12345666
+
+GET | Lihat User dan Point = http://localhost/sistem_point/api/users
+GET | Lihat Hadiah = http://localhost/sistem_point/api/hadiah
+

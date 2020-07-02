@@ -519,7 +519,7 @@ class RestController extends \CI_Controller
             $this->response([
                 $this->config->item('rest_status_field_name')  => false,
                 $this->config->item('rest_message_field_name') => sprintf($this->lang->line('text_rest_invalid_api_key'), $this->rest->key),
-            ], HTTP_FORBIDDEN);
+            ], self::HTTP_FORBIDDEN);
         }
 
         // Check to see if this key has access to the requested controller
@@ -531,7 +531,7 @@ class RestController extends \CI_Controller
             $this->response([
                 $this->config->item('rest_status_field_name')  => false,
                 $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_api_key_unauthorized'),
-            ], HTTP_UNAUTHORIZED);
+            ], self::HTTP_UNAUTHORIZED);
         }
 
         // Sure it exists, but can they do anything with it?
@@ -547,7 +547,7 @@ class RestController extends \CI_Controller
             // Check the limit
             if ($this->config->item('rest_enable_limits') && $this->_check_limit($controller_method) === false) {
                 $response = [$this->config->item('rest_status_field_name') => false, $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_api_key_time_limit')];
-                $this->response($response, HTTP_UNAUTHORIZED);
+                $this->response($response, self::HTTP_UNAUTHORIZED);
             }
 
             // If no level is set use 0, they probably aren't using permissions
@@ -562,14 +562,14 @@ class RestController extends \CI_Controller
             if ($authorized === false) {
                 // They don't have good enough perms
                 $response = [$this->config->item('rest_status_field_name') => false, $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_api_key_permissions')];
-                $this->response($response, HTTP_UNAUTHORIZED);
+                $this->response($response, self::HTTP_UNAUTHORIZED);
             }
         }
 
         //check request limit by ip without login
         elseif ($this->config->item('rest_limits_method') == 'IP_ADDRESS' && $this->config->item('rest_enable_limits') && $this->_check_limit($controller_method) === false) {
             $response = [$this->config->item('rest_status_field_name') => false, $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_ip_address_time_limit')];
-            $this->response($response, HTTP_UNAUTHORIZED);
+            $this->response($response, self::HTTP_UNAUTHORIZED);
         }
 
         // No key stuff, but record that stuff is happening
@@ -656,7 +656,7 @@ class RestController extends \CI_Controller
             // If not greater than zero, then set the HTTP status code as 200 by default
             // Though perhaps 500 should be set instead, for the developer not passing a
             // correct HTTP status code
-            $http_code > 0 || $http_code = HTTP_OK;
+            $http_code > 0 || $http_code = self::HTTP_OK;
 
             $this->output->set_status_header($http_code);
 
@@ -1710,7 +1710,7 @@ class RestController extends \CI_Controller
             $this->response([
                 $this->config->item('rest_status_field_name')  => false,
                 $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_unauthorized'),
-            ], $this->http_status['UNAUTHORIZED']);
+            ], self::HTTP_UNAUTHORIZED);
         }
     }
 
@@ -1794,7 +1794,7 @@ class RestController extends \CI_Controller
             $this->response([
                 $this->config->item('rest_status_field_name')  => false,
                 $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_invalid_credentials'),
-            ], $this->http_status['UNAUTHORIZED']);
+            ], self::HTTP_UNAUTHORIZED);
         }
     }
 
@@ -1814,7 +1814,7 @@ class RestController extends \CI_Controller
             $this->response([
                 $this->config->item('rest_status_field_name')  => false,
                 $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_ip_denied'),
-            ], $this->http_status['UNAUTHORIZED']);
+            ], self::HTTP_UNAUTHORIZED);
         }
     }
 
@@ -1839,7 +1839,7 @@ class RestController extends \CI_Controller
             $this->response([
                 $this->config->item('rest_status_field_name')  => false,
                 $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_ip_unauthorized'),
-            ], $this->http_status['UNAUTHORIZED']);
+            ], self::HTTP_UNAUTHORIZED);
         }
     }
 
@@ -1874,7 +1874,7 @@ class RestController extends \CI_Controller
         $this->response([
             $this->config->item('rest_status_field_name')  => false,
             $this->config->item('rest_message_field_name') => $this->lang->line('text_rest_unauthorized'),
-        ], $this->http_status['UNAUTHORIZED']);
+        ], self::HTTP_UNAUTHORIZED);
     }
 
     /**

@@ -121,21 +121,22 @@
 <?php endforeach; ?>
 
 <?php foreach ($hadiah as $row): ?>
-<div id="delete<?= $row['id']  ?>" class="modal fade custom-modal-tabs">
+<div id="tukar<?= $row['id']  ?>" class="modal fade custom-modal-tabs">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header has-border">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h5 class="modal-title">Hapus Data</h5>
+        <h5 class="modal-title">Tukar Point</h5>
       </div>
       <form action="<?= base_url('backend/hadiah/tukar') ?>" method="POST">
         <input type="hidden" name="id" value="<?= $row['id'] ?>">
-        <div class="modal-body">
-          <h4>Apakah anda yakin ingin menukar point anda dengan hadiah ini? <span class="text-danger"><?= $row['nama_hadiah'] ?></span></h4>
+        <input type="text" name="point" value="<?= $row['point'] ?>">
+        <div class="modal-body text-center">
+          <h4>Apakah anda yakin ingin menukar point anda dengan hadiah ini?</h4><h4><span class="text-danger"><?= $row['nama_hadiah'] ?></h4></span>
         </div>
         <div class="modal-footer modal-footer--center">
           <button type="button" class="btn btn-outline-info" data-dismiss="modal">Cancel</button>
-          <button class="btn btn-custom" type="submit">Delete</button>
+          <button class="btn btn-info" type="submit">Tukar</button>
         </div>
       </form>
     </div>
